@@ -39,3 +39,31 @@ var swiper = new Swiper(".review-slider", {
         }
     },
 });
+
+function scrollToTop() {
+    // Cuộn về đầu trang một cách mượt mà
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    var backToTopButton = document.getElementById('backToTop');
+  
+    // Check scroll position when the page loads
+    if (window.scrollY > 200) {
+      backToTopButton.style.display = 'block';
+    } else {
+      backToTopButton.style.display = 'none';
+    }
+  
+    // Update button visibility while scrolling
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 200) {
+        backToTopButton.style.display = 'block';
+      } else {
+        backToTopButton.style.display = 'none';
+      }
+    });
+  });
